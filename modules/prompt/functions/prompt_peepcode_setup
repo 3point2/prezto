@@ -58,7 +58,7 @@ function prompt_peepcode_setup {
 
   # Define prompts.
   PROMPT="
-%~
+%B%~%b
 %(?.%F{green}${1:-☻ }%f.%F{red}${1:-☻ }%f) "
 RPROMPT='${python_info[virtualenv]}${ruby_info[version]}${git_info[rprompt]}'
 
