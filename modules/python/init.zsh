@@ -25,7 +25,7 @@ else
     path=($HOME/Library/Python/*/bin(N) $path)
   else
     # This is subject to change.
-    path=($HOME/.local/bin $path)
+    # path=($HOME/.local/bin $path)
   fi
 fi
 
