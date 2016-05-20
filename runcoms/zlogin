@@ -14,8 +14,3 @@
   fi
 } &!
 
-# fortune -s computers|cowsay
-
-source ~/.rvm/scripts/rvm
-
-export PATH="$PATH:~/.bin"
