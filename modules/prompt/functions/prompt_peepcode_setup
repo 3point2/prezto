@@ -20,6 +20,11 @@ function prompt_peepcode_precmd {
   if (( $+functions[ruby-info] )); then
     ruby-info
   fi
+
+  # Get Python information.
+  if (( $+functions[python-info] )); then
+    python-info
+  fi
 }
 
 function prompt_peepcode_setup {
@@ -48,11 +53,14 @@ function prompt_peepcode_setup {
   # Set ruby-info parameters.
   zstyle ':prezto:module:ruby:info:version' format ' %F{white}%v%f'
 
+  # Set python-info parameters.
+  zstyle ':prezto:module:python:info:virtualenv' format 'virtualenv:%v'
+
   # Define prompts.
   PROMPT="
 %~
 %(?.%F{green}${1:-☻ }%f.%F{red}${1:-☻ }%f) "
-RPROMPT='${ruby_info[version]}${git_info[rprompt]}'
+RPROMPT='${python_info[virtualenv]}${ruby_info[version]}${git_info[rprompt]}'
 
 }
 
