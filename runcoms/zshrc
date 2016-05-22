@@ -11,6 +11,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 unsetopt AUTO_CD
+setopt interactivecomments
 HISTSIZE=100000
 SAVEHIST=100000
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
+
+alias -g pacman=pacmatic
