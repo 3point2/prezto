@@ -37,7 +37,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'git' \
   'ruby' \
-  'python'
+  'python'\
+  'pacman'
 
 #
 # Autosuggestions
@@ -88,7 +89,7 @@ zstyle ':prezto:module:editor' key-bindings 'emacs'
 #
 
 # Set the Pacman frontend.
-# zstyle ':prezto:module:pacman' frontend 'yaourt'
+zstyle ':prezto:module:pacman' frontend 'pacmatic'
 
 #
 # Prompt
