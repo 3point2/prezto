@@ -37,7 +37,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'git' \
   'ruby' \
-  'python'
+  'python' \
+  'node'
 
 #
 # Autosuggestions

@@ -69,3 +69,4 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 export PATH="$PATH:~/.bin"
+export NVM_DIR="$HOME/.nvm"
