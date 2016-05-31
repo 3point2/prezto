@@ -17,3 +17,4 @@ SAVEHIST=100000
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
 
 alias -g pacman=pacmatic
+setopt rm_star_silent
