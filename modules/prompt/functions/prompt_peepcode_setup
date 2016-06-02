@@ -12,11 +12,12 @@
 
 # todo: move to module
 function whowhere-info {
+  typeset -gA whowhere_info
   # don't username@host if i'm my usual user on my usual machine
   if [[ "$USERNAME@$HOST" != "$HIDE_WHOWHERE" ]] || [[ -n "$SSH_CONNECTION" ]]; then
-    whowhere_info="[$USERNAME@$HOST]"
+    whowhere_info[info]="%B%F{yellow}[$USERNAME@$HOST]%f%b"
   else
-    whowhere_info=""
+    whowhere_info[info]=''
   fi
 }
 
@@ -77,9 +78,14 @@ function prompt_peepcode_setup {
   zstyle ':prezto:module:node:info:version' format ' %F{white}nvm:%v%f'
 
   # Define prompts.
-  PROMPT="
+  if [[ $UID -eq 0 ]]; then
+    PROMPT_SYMBOL='#'
+  else
+    PROMPT_SYMBOL='$'
+  fi
+  PROMPT='
 %B%~%b
-${whowhere_info}%(?.%F{green}${1:-☻ }%f.%F{red}${1:-☻ }%f) "
+${whowhere_info[info]}%(?.%F{green}'${PROMPT_SYMBOL}'%f.%F{red}'${PROMPT_SYMBOL}'%f) '
 RPROMPT='${python_info[virtualenv]}${ruby_info[version]}${node_info[version]}${git_info[rprompt]}'
 
 }
@@ -99,15 +105,7 @@ function prompt_peepcode_preview {
   local +h RPROMPT=''
   local +h SPROMPT=''
 
-  if (( $# > 0 )); then
-    prompt_preview_theme 'peepcode' "$@"
-  else
-    prompt_preview_theme 'peepcode'
-    print
-    prompt_preview_theme 'peepcode' "❯"
-    print
-    prompt_preview_theme 'peepcode' "$"
-  fi
+  prompt_preview_theme 'peepcode'
 }
 
 prompt_peepcode_setup "$@"
