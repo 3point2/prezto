@@ -4,7 +4,7 @@ SCRIPT_DIR="$(dirname "$0:A")"
 
 DESTINATION="$HOME/.zprezto"
 
-if [[ -e "$DESTINATION"]]; then
+if [[ -e "$DESTINATION" ]]; then
     echo "error: $DESTINATION already exists."
     exit 1
 fi
