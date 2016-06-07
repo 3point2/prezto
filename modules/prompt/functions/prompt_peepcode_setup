@@ -84,7 +84,7 @@ function prompt_peepcode_setup {
     PROMPT_SYMBOL='$'
   fi
   PROMPT='
-%B%~%b
+%~
 ${whowhere_info[info]}%(?.%F{green}'${PROMPT_SYMBOL}'%f.%F{red}'${PROMPT_SYMBOL}'%f) '
 RPROMPT='${python_info[virtualenv]}${ruby_info[version]}${node_info[version]}${git_info[rprompt]}'
 
