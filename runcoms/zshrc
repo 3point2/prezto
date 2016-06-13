@@ -23,3 +23,7 @@ alias -g pacman=pacmatic
 setopt rm_star_silent
 zstyle ':completion:*' rehash true
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/vasili/.sdkman"
+[[ -s "/home/vasili/.sdkman/bin/sdkman-init.sh" ]] && source "/home/vasili/.sdkman/bin/sdkman-init.sh"
