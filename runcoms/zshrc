@@ -24,6 +24,7 @@ setopt rm_star_silent
 zstyle ':completion:*' rehash true
 
 
+export JAVA_HOME=/home/vasili/code/java
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/vasili/.sdkman"
 [[ -s "/home/vasili/.sdkman/bin/sdkman-init.sh" ]] && source "/home/vasili/.sdkman/bin/sdkman-init.sh"
