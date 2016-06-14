@@ -30,9 +30,11 @@ if [[ -d "$CUSTOM_JAVA_HOME" ]] && [[ -z "$JAVA_HOME" ]]; then
 fi
 
 # add destination of symlinks in ~/.bin-dirs to PATH
-for dir in $(readlink -f ~/.bin-dirs/*); do
-  PATH="$dir:$PATH"
-done
+if [[ -d ~/.bin-dirs ]]; then
+    for dir in $(readlink -f ~/.bin-dirs/*); do
+      PATH="$dir:$PATH"
+    done
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
