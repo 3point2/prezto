@@ -20,11 +20,18 @@ SAVEHIST=100000
 HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND=''
 
 alias -g pacman=pacmatic
+unalias du
 setopt rm_star_silent
 zstyle ':completion:*' rehash true
 
 
-export JAVA_HOME=/home/vasili/code/java
+export JAVA_HOME=$HOME/code/java
+
+# add destination of symlinks in ~/.bin-dirs to PATH
+for dir in $(readlink -f ~/.bin-dirs/*); do
+  PATH="$dir:$PATH"
+done
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/vasili/.sdkman"
-[[ -s "/home/vasili/.sdkman/bin/sdkman-init.sh" ]] && source "/home/vasili/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
