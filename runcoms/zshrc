@@ -26,18 +26,9 @@ zstyle ':completion:*' rehash true
 # allow > to truncate dest file (some scripts e.g. sdkman depend on this)
 setopt clobber
 
-CUSTOM_JAVA_HOME="$HOME/code/java"
-if [[ -d "$CUSTOM_JAVA_HOME" ]] && [[ -z "$JAVA_HOME" ]]; then
-    export JAVA_HOME="$CUSTOM_JAVA_HOME"
-fi
-
 # add destination of symlinks in ~/.bin-dirs to PATH
 if [[ -d ~/.bin-dirs ]]; then
     for dir in $(readlink -f ~/.bin-dirs/*); do
       PATH="$dir:$PATH"
     done
 fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
