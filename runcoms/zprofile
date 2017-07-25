@@ -60,13 +60,15 @@ fi
 #
 # Temporary Files
 #
-
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$LOGNAME"
-  mkdir -p -m 700 "$TMPDIR"
+#
+# Set TMPDIR if the variable is not set/empty or the directory doesn't exist
+if [[ -z "${TMPDIR}" ]]; then
+  export TMPDIR="/tmp/zsh-${UID}"
 fi
-
-TMPPREFIX="${TMPDIR%/}/zsh"
 
 export PATH="$PATH:$HOME/.bin"
 export NVM_DIR="$HOME/.nvm"
+
+if [[ ! -d "${TMPDIR}" ]]; then
+  mkdir -m 700 "${TMPDIR}"
+fi
